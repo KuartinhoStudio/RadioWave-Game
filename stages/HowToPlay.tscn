@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://stages/HowToPlay.gd" type="Script" id=1]
 [ext_resource path="res://sfx/how to play.mp3" type="AudioStream" id=2]
+[ext_resource path="res://stages/Próximo.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/m5x7.ttf"
@@ -14,7 +15,7 @@ font_data = SubResource( 1 )
 font_path = "res://fonts/m5x7.ttf"
 
 [sub_resource type="DynamicFont" id=4]
-size = 25
+size = 20
 font_data = SubResource( 3 )
 
 [sub_resource type="DynamicFontData" id=5]
@@ -30,45 +31,43 @@ font_path = "res://fonts/m5x7.ttf"
 [sub_resource type="DynamicFont" id=8]
 font_data = SubResource( 7 )
 
-[node name="Control" type="Control"]
+[node name="HowToPlay" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -114.0
-margin_top = 74.0
+margin_top = 51.0
 margin_right = 114.0
-margin_bottom = 98.0
+margin_bottom = 75.0
 custom_fonts/font = SubResource( 2 )
 text = "Como Jogar? RadioWave"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label2" type="Label" parent="."]
+[node name="TextBody" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -284.0
-margin_top = 156.0
-margin_right = 284.0
-margin_bottom = 296.0
+margin_left = -263.0
+margin_top = 103.0
+margin_right = 339.0
+margin_bottom = 316.0
 custom_fonts/font = SubResource( 4 )
-text = "Clique/Mantenha pressionado o botão esquerdo do mouse para atirar.
+text = "Mouse/Teclado:
 
-Pause a fase com a tecla ESPAÇO.
+1. Clique ou Mantenha pressionado o botão esquerdo do mouse para atirar.
 
-Mova o mouse para mover Wave, a heroína."
+2. Clique ou Mantenha pressionado o botão direito para usar o tiro especial.
+
+3. Mova o mouse para movientar Wave, a heroína.
+
+4. Pause o jogo com a tecla P."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Logo" type="Label" parent="."]
+[node name="LogoKuartiho" type="Label" parent="."]
 margin_left = 1.0
 margin_top = 337.0
 margin_right = 240.0
@@ -76,24 +75,38 @@ margin_bottom = 369.0
 custom_fonts/font = SubResource( 6 )
 text = "Kuartinho Studios© 2021."
 
-[node name="Button" type="Button" parent="."]
+[node name="Voltar" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -161.081
-margin_top = 76.7645
-margin_right = -72.0814
-margin_bottom = 96.7645
+margin_left = -135.0
+margin_top = 124.0
+margin_right = -46.0004
+margin_bottom = 144.0
 custom_fonts/font = SubResource( 8 )
 text = "Voltar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Próximo" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -257.0
+margin_top = 124.0
+margin_right = -168.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 8 )
+text = "Próximo"
+script = ExtResource( 3 )
+
 [node name="tutorialMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -10.0
 autoplay = true
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Voltar" to="." method="_on_Voltar_pressed"]
+[connection signal="pressed" from="Próximo" to="." method="_on_Prximo_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://stages/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/patiponpas.png" type="Texture" id=2]
 [ext_resource path="res://sfx/TELADEINICIO.mp3" type="AudioStream" id=3]
+[ext_resource path="res://stages/StartButton.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/m5x7.ttf"
@@ -53,9 +54,6 @@ font_data = SubResource( 11 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -66,15 +64,13 @@ margin_left = -63.0
 margin_top = 35.0
 margin_right = 64.0
 margin_bottom = 103.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 margin_right = 127.0
 margin_bottom = 23.0
 custom_fonts/font = SubResource( 2 )
 text = "Começar"
+script = ExtResource( 4 )
 
 [node name="HowToPlayButton" type="Button" parent="VBoxContainer"]
 margin_top = 27.0
@@ -109,11 +105,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="TitleBackground" type="Sprite" parent="."]
 position = Vector2( 304, 99 )
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
+[node name="RadioWaveTitle" type="Label" parent="."]
 margin_left = 196.0
 margin_top = 74.0
 margin_right = 447.0

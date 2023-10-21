@@ -6,7 +6,7 @@ var dialogue_1 = [
 		"Expression": "",
 		"Position": "",
 		"Choices": "",
-		"Text": " -Na última estação... ",
+		"Text": "-Na última estação... ",
 		"Music": "",
 		"SFX": "",
 	},
@@ -15,7 +15,7 @@ var dialogue_1 = [
 		"Expression": "",
 		"Position": "",
 		"Choices": "",
-		"Text": " 'Esse é um novo começo.' ",
+		"Text": "'Esse é um novo começo.' ",
 		"Music": "",
 		"SFX": "",
 	}

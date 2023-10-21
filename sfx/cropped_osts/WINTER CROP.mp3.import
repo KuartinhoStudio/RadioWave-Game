@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WINTER CROP.mp3-e39b06a6e03f739d4d9b77c8304394f2.mp3str"
+
+[deps]
+
+source_file="res://sfx/cropped_osts/WINTER CROP.mp3"
+dest_files=[ "res://.import/WINTER CROP.mp3-e39b06a6e03f739d4d9b77c8304394f2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/AUTUMN CROP.mp3-cbe7bec7c9d28dc25a9743ae05e397d6.mp3str"
+
+[deps]
+
+source_file="res://sfx/cropped_osts/AUTUMN CROP.mp3"
+dest_files=[ "res://.import/AUTUMN CROP.mp3-cbe7bec7c9d28dc25a9743ae05e397d6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

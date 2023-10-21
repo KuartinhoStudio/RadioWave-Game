@@ -2,11 +2,12 @@
 
 [ext_resource path="res://scenes/cutscenes/DialogueBox_05.gd" type="Script" id=1]
 [ext_resource path="res://scenes/cutscenes/Cutscene6.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/cutscenes/Control.gd" type="Script" id=3]
+[ext_resource path="res://scenes/cutscenes/BaseCutscene.gd" type="Script" id=3]
 [ext_resource path="res://fonts/m5x7.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/cutscenes/CutsceneBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Cutscenes_Atualizadas/cena_5.png" type="Texture" id=6]
 [ext_resource path="res://scenes/cutscenes/CUTSCENE.mp3" type="AudioStream" id=7]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 35

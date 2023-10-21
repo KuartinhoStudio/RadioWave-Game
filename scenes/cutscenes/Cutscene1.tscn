@@ -8,9 +8,6 @@
 [ext_resource path="res://scenes/cutscenes/CUTSCENE.mp3" type="AudioStream" id=6]
 
 [node name="Control" instance=ExtResource( 1 )]
-__meta__ = {
-"_edit_group_": true
-}
 next_scene = ExtResource( 4 )
 text_script = ExtResource( 3 )
 

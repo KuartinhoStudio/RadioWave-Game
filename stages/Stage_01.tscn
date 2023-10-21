@@ -1,40 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://stages/baseStage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/cutscenes/Cutscene3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/parallaxLayer1.gd" type="Script" id=3]
-[ext_resource path="res://sfx/Tiro do protagonista pou pou.mp3" type="AudioStream" id=4]
-[ext_resource path="res://sfx/AUTUMN2.0.mp3" type="AudioStream" id=5]
-[ext_resource path="res://sprites_wave/spritesheet (3) (1).png" type="Texture" id=6]
-
-[sub_resource type="Animation" id=1]
-length = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("tilesheetwave:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
+[ext_resource path="res://sfx/cropped_osts/AUTUMN CROP.mp3" type="AudioStream" id=4]
+[ext_resource path="res://interface/GameOverScene.tscn" type="PackedScene" id=5]
 
 [node name="world" instance=ExtResource( 1 )]
 score = 25
 nextScene = ExtResource( 2 )
-
-[node name="tilesheetwave" parent="ship" index="2"]
-position = Vector2( -3.05176e-05, -10 )
-texture = ExtResource( 6 )
-
-[node name="AnimationPlayer" parent="ship" index="3"]
-anims/RESET = SubResource( 1 )
-
-[node name="playerShoot" parent="ship" index="7"]
-stream = ExtResource( 4 )
 
 [node name="score" parent="." index="2"]
 text = "Inimigos restantes: 0
@@ -45,15 +19,25 @@ text = "Inimigos restantes: 0
 script = ExtResource( 3 )
 SPEED = 100
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
-stream = ExtResource( 5 )
+[node name="VBoxContainer" parent="." index="9" instance=ExtResource( 5 )]
+visible = false
+margin_left = 257.355
+margin_top = 145.183
+margin_right = 384.355
+margin_bottom = 222.183
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource( 4 )
 volume_db = -10.0
 autoplay = true
 
-[node name="lifes" parent="." index="11"]
+[node name="lifes" parent="." index="12"]
 text = "Vidas:"
 
-[connection signal="player_has_take_dama" from="ship" to="." method="_on_ship_player_has_take_dama"]
-[connection signal="animation_finished" from="ship/AnimationPlayer" to="ship" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="player" to="player" method="_on_player_area_entered"]
+[connection signal="player_died" from="player" to="VBoxContainer" method="_on_PlayerDeath"]
+[connection signal="player_has_take_dama" from="player" to="." method="_on_player_has_take_damage"]
+[connection signal="spawn_double_laser" from="player" to="." method="_on_player_spawn_double_laser"]
+[connection signal="spawn_laser" from="player" to="." method="_on_player_spawn_laser"]
 
-[editable path="ship"]
+[editable path="player"]

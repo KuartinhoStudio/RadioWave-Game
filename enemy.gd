@@ -1,4 +1,6 @@
-extends Area2D #commonEnemy
+# CommonEnemy.tscn
+
+extends Area2D 
 
 signal enemy_died 
 var hp = 1

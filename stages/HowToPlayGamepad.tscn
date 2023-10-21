@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://stages/HowToPlayGamepad.gd" type="Script" id=1]
+[ext_resource path="res://sfx/how to play.mp3" type="AudioStream" id=2]
+[ext_resource path="res://stages/Voltar.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/m5x7.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/m5x7.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/m5x7.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://fonts/m5x7.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+font_data = SubResource( 7 )
+
+[node name="HowToPlayGamePad" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -114.0
+margin_top = 51.0
+margin_right = 114.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 2 )
+text = "Como Jogar? RadioWave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBody" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -263.0
+margin_top = 103.0
+margin_right = 339.0
+margin_bottom = 316.0
+custom_fonts/font = SubResource( 4 )
+text = "Gamepad/Controle:
+
+1. Pressione ou Mantenha  o botão A do controle para atirar.
+
+2. Pressione ou Mantenha  o botão B para usar o tiro especial.
+
+3. Mova as alavancas/direcionais para movimentar Wave, a heroína..
+
+4. Pause o jogo com o botão Start."
+
+[node name="LogoKuartiho" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 337.0
+margin_right = 240.0
+margin_bottom = 369.0
+custom_fonts/font = SubResource( 6 )
+text = "Kuartinho Studios© 2021."
+
+[node name="Voltar" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 124.0
+margin_right = -46.0004
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 8 )
+text = "Voltar"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tutorialMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Voltar" to="." method="_on_Voltar_pressed"]

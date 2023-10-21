@@ -1,19 +1,18 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/cutscenes/Control.gd" type="Script" id=3]
+[ext_resource path="res://scenes/cutscenes/BaseCutscene.gd" type="Script" id=3]
 [ext_resource path="res://fonts/m5x7.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
 font_data = ExtResource( 4 )
 
-[node name="Control" type="Control"]
+[node name="BaseCutscene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
