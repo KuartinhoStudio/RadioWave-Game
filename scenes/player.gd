@@ -10,7 +10,7 @@ var player_has_died = false
 var hp = 3
 var canShoot = true
 var MAX_SPEED = 400
-var gamepad = true
+var gamepad:bool 
 onready var playerShootSound = $playerShoot
 onready var muzzle = $Muzzle
 export var shootDelay = 0.2
@@ -27,8 +27,9 @@ func _on_joy_connection_changed(device_id, connected):
 #Começo
 func _ready():
 	#Gamepad Connection
-	Input.connect("joy_connection_changed", self, "_on_joy_connection_changed")
-
+	#Input.connect("joy_connection_changed", self, "_on_joy_connection_changed")
+	pass
+	
 #Movimento e ações
 func ready_to_shoot():
 	canShoot = true
@@ -36,7 +37,19 @@ func ready_to_shoot():
 # Update process
 func _process(_delta):
 	
-	if gamepad:
+	var connected_joypads = Input.get_connected_joypads()
+	
+	if connected_joypads.size() > 0:
+		gamepad = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		gamepad = false
+	
+	if gamepad == false:
+		position.y = lerp(position.y, get_global_mouse_position().y, MOUSE_SPEED)
+		position.x = lerp(position.x, get_global_mouse_position().x, MOUSE_SPEED)		
+	else:
 		var input_vector = Vector2(
 			Input.get_joy_axis(0, JOY_ANALOG_LX),
 			Input.get_joy_axis(0, JOY_ANALOG_LY)
@@ -46,9 +59,7 @@ func _process(_delta):
 			position += input_vector * MAX_SPEED * _delta
 		else:
 			position += Vector2()
-	else:
-		position.y = lerp(position.y, get_global_mouse_position().y, MOUSE_SPEED)
-		position.x = lerp(position.x, get_global_mouse_position().x, MOUSE_SPEED)	
+
 			
 	if Input.is_action_pressed("shoot"):
 		if canShoot == true:
